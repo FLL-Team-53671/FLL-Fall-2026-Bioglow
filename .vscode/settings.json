@@ -1,0 +1,38 @@
+{
+    "files.exclude": {
+        ".idea/": true,
+        ".mypy_cache": true,
+        "*.code-profile": true,
+        "**/__pycache__/": true,
+        "**/.DS_Store": true,
+        "**/.git": true,
+        "**/.gitignore": true,
+        "**/.hg": true,
+        "**/.svn": true,
+        "**/.venv/": true,
+        "**/.vscode/": true,
+        "**/CVS": true,
+        "**/README.md": true,
+        "**/Thumbs.db": true,
+        "pyproject.toml": true,
+        "requirements.txt": true,
+        "uv.lock": true
+    },
+    "task.allowAutomaticTasks": "on",
+    "git.postCommitCommand": "sync",
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true
+    },
+    "codetogether.virtualCursorJoin": "sharedVirtualCursor",
+    "editor.rulers": [
+        80
+    ],
+    "black-formatter.args": [
+        "--line-length",
+        "79"
+    ]
+}

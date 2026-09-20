@@ -1,0 +1,5 @@
+# Locked to these versions in response to a bug in pybricks 3.6.0
+# https://github.com/pybricks/support/issues/2317
+# https://github.com/orgs/pybricks/discussions/2321#discussioncomment-14064713
+pybricks==3.6.1
+pybricksdev==2.0.0
