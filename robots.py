@@ -8,7 +8,6 @@ Ideas to try:
 from base_robot import *
 
 
-
 class DrivingBaseRobot(BaseRobot):
     """
     Basic driving base from the SPIKE Prime website.
@@ -47,7 +46,7 @@ class AdvancedDrivingBaseRobot(BaseRobot):
     def __init__(self):
         self.hub = PrimeHub(top_side=Axis.Z, front_side=-Axis.Y)  # type: ignore
         self.leftDriveMotor = Motor(Port.A, Direction.COUNTERCLOCKWISE)
-        self.rightDriveMotor = Motor(Port.D)
+        self.rightDriveMotor = Motor(Port.E)
 
         TIRE_DIAMETER = 85  # mm
         AXLE_TRACK = 155  # distance between the wheels, mm
@@ -58,8 +57,9 @@ class AdvancedDrivingBaseRobot(BaseRobot):
             AXLE_TRACK,
         )
 
-        self.leftAttachmentMotor = Motor(Port.B, Direction.COUNTERCLOCKWISE)
-        self.rightAttachmentMotor = Motor(Port.E)
+        self.leftAttachmentMotor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
+        self.rightAttachmentMotor = Motor(Port.D)
+        # color sensors: B, F
 
 
 class PiRobot(BaseRobot):
@@ -89,7 +89,9 @@ class PiRobot(BaseRobot):
         # left color sensor: A
         # right color sensor : C
 
-        #distance prot is port c
+        # distance prot is port c
+
+
 # Dictionary from robot me to robot class. Make sure to add a new entry in
 # this dictionary if you configure a new robot.
 ROBOT_CONFIG = {

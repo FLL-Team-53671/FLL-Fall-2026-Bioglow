@@ -7,8 +7,10 @@ from current_robot import current_robot
 
 
 def run(br: BaseRobot):
-    br.driveForDistance(100)
-    br.moveLeftAttachmentMotorForMillis(millis=1000, speed=500)
+    br.leftAttachmentMotor.run_target(100, 180)
+    br.driveForDistance(670, 200)
+    br.driveForDistance(-670, 200)
+    br.robot.arc(-50, 360)
 
 
 if __name__ == "__main__":
