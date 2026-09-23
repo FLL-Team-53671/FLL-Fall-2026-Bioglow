@@ -6,11 +6,11 @@ from current_robot import current_robot
 # that if needed.
 
 
-def Run(br: BaseRobot):
+def run(br: BaseRobot):
     br.driveForDistance(100)
     br.moveLeftAttachmentMotorForMillis(millis=1000, speed=500)
 
 
 if __name__ == "__main__":
     r = current_robot()
-    Run(r)
+    run(r)
