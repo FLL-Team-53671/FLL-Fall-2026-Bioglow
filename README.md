@@ -30,6 +30,12 @@ https://github.com/MrGibbage/fll-pybricks-vscode-tutorial?tab=readme-ov-file
 3. On the hub, `master_program.py` shows a menu; `current_robot()` builds the
    robot object from the name in `current_robot_name.py`.
 
+### Launch on a Different Robot (Ctrl-Option-L)
+
+You can also launch the program on another robot from the list than the 
+currently configured one. Ctrl-Option-L will bring up a dialog to select a 
+robot from the list before proceeding with the other steps above for Launch.
+
 ## Where the Robot Name Is Configured
 
 The robot name (used both for the BLE connection and for `ROBOT_CONFIG`
@@ -38,9 +44,11 @@ lookup) comes from the **`fllRobotName`** VS Code setting:
 - **Global user settings (the default place):**
   `~/Library/Application Support/Code/User/settings.json`
   ```json
-  "fllRobotName": "PezBot"
+  "fllRobotName": "Cuddles"
   ```
   Open with Cmd+, in VS Code and search for `fllRobotName`.
+- A shortcut to open this file is to cilck on the section of the bottom bar of 
+  VS Code that says "fllRobotName: <currentRobot>".
 - An optional workspace setting (`.vscode/settings.json`) can override the
   global one if you want a different robot name per repo.
 
@@ -53,3 +61,8 @@ should also match the hub's Bluetooth name (the `--name` argument of
 If the hub has the stock LEGO firmware, flash PyBricks first: connect the hub
 by USB, then run `./.venv/bin/pybricksdev flash` (add `--version <x.y.z>` to
 pin a specific firmware version). See the PyBricks docs for details.
+
+A more user-friendly way to update firmware is available at 
+https://code.pybricks.com/. In the menu at the left, click 
+"Install Pybricks Firmware" to begin their walk-through of the process, or 
+"Restore Official LEGO Firmware" to go back to the stock firmware.
