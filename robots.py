@@ -71,7 +71,7 @@ class PiRobot(BaseRobot):
 
     def __init__(self):
         self.hub = PrimeHub(top_side=Axis.Z, front_side=-Axis.Y)  # type: ignore
-        self.leftDriveMotor = Motor(Port.A, Direction.COUNTERCLOCKWISE)
+        self.leftDriveMotor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
         self.rightDriveMotor = Motor(Port.D)
 
         TIRE_DIAMETER = 85  # mm
@@ -83,9 +83,9 @@ class PiRobot(BaseRobot):
             AXLE_TRACK,
         )
 
-        self.leftAttachmentMotor = Motor(Port.B, Direction.COUNTERCLOCKWISE)
-        self.rightAttachmentMotor = Motor(Port.E)
-        UltrasonicSensor(Port.C)
+        self.leftAttachmentMotor = Motor(Port.F, Direction.COUNTERCLOCKWISE)
+        self.rightAttachmentMotor = Motor(Port.B)
+        # UltrasonicSensor(Port.C)
         # left color sensor: A
         # right color sensor : C
 
@@ -95,6 +95,6 @@ class PiRobot(BaseRobot):
 # Dictionary from robot me to robot class. Make sure to add a new entry in
 # this dictionary if you configure a new robot.
 ROBOT_CONFIG = {
-    "Cuddles": AdvancedDrivingBaseRobot,
+    "Cuddles": PiRobot,
     "RobBot": PiRobot,
 }
