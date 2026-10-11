@@ -74,8 +74,8 @@ class PiRobot(BaseRobot):
         self.leftDriveMotor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
         self.rightDriveMotor = Motor(Port.D)
 
-        TIRE_DIAMETER = 85  # mm
-        AXLE_TRACK = 155  # distance between the wheels, mm
+        TIRE_DIAMETER = 62  # mm
+        AXLE_TRACK = 170  # distance between the wheels, mm
         self.robot = DriveBase(
             self.leftDriveMotor,
             self.rightDriveMotor,
