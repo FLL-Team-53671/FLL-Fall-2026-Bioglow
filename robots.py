@@ -83,10 +83,10 @@ class PiRobot(BaseRobot):
             AXLE_TRACK,
         )
 
-        self.leftAttachmentMotor = Motor(Port.B, Direction.COUNTERCLOCKWISE)
-        self.rightAttachmentMotor = Motor(Port.E)
-        UltrasonicSensor(Port.C)
+        self.leftAttachmentMotor = Motor(Port.F, Direction.COUNTERCLOCKWISE)
+        self.rightAttachmentMotor = Motor(Port.B)
         # left color sensor: A
+        self.colorSensor = ColorSensor(Port.E)
         # right color sensor : C
 
         # distance prot is port c
@@ -95,6 +95,6 @@ class PiRobot(BaseRobot):
 # Dictionary from robot me to robot class. Make sure to add a new entry in
 # this dictionary if you configure a new robot.
 ROBOT_CONFIG = {
-    "Cuddles": AdvancedDrivingBaseRobot,
+    "Cuddles": PiRobot,
     "RobBot": PiRobot,
 }
