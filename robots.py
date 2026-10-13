@@ -71,7 +71,7 @@ class PiRobot(BaseRobot):
 
     def __init__(self):
         self.hub = PrimeHub(top_side=Axis.Z, front_side=-Axis.Y)  # type: ignore
-        self.leftDriveMotor = Motor(Port.A, Direction.COUNTERCLOCKWISE)
+        self.leftDriveMotor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
         self.rightDriveMotor = Motor(Port.D)
 
         TIRE_DIAMETER = 85  # mm
