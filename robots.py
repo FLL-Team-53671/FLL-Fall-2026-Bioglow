@@ -70,7 +70,7 @@ class PiRobot(BaseRobot):
     """
 
     def __init__(self):
-        self.hub = PrimeHub(top_side=Axis.Z, front_side=-Axis.Y)  # type: ignore
+        self.hub = PrimeHub(top_side=-Axis.X, front_side=-Axis.Y)  # type: ignore
         self.leftDriveMotor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
         self.rightDriveMotor = Motor(Port.D)
 
