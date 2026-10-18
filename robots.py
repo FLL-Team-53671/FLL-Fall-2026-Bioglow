@@ -70,7 +70,7 @@ class PiRobot(BaseRobot):
     """
 
     def __init__(self):
-        self.hub = PrimeHub(top_side=Axis.Z, front_side=-Axis.Y)  # type: ignore
+        self.hub = PrimeHub(top_side=-Axis.X, front_side=-Axis.Y)  # type: ignore
         self.leftDriveMotor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
         self.rightDriveMotor = Motor(Port.D)
 
@@ -87,6 +87,7 @@ class PiRobot(BaseRobot):
         self.rightAttachmentMotor = Motor(Port.B)
         # UltrasonicSensor(Port.C)
         # left color sensor: A
+        self.colorSensor = ColorSensor(Port.E)
         # right color sensor : C
 
         # distance prot is port c
