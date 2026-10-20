@@ -5,6 +5,7 @@ from current_robot import current_robot
 import Across_the_board
 import leafcutter_ants
 import drone_mission
+import explodiong_seeds
 
 while True:
     program = hub_menu("x", "s")
@@ -17,3 +18,5 @@ while True:
         leafcutter_ants.run(r)
     elif program == "D":
         drone_mission.run(r)
+    elif program == "E":
+        explodiong_seeds.run(r)
