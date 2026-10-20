@@ -17,8 +17,8 @@ from pybricks.parameters import (
 def run(br: BaseRobot):
     br.driveForDistance(610, 200, Stop.BRAKE, False)
     br.robot.turn(68)
-    br.robot.arc(2000, 10)
-    br.driveForDistance(220, 40, Stop.BRAKE, False)
+    br.robot.arc(2000, 12)
+    br.driveForDistance(180, 40, Stop.BRAKE, False)
     br.driveForDistance(-220, 40, Stop.BRAKE, False)
     br.robot.arc(2000, -10)
     br.robot.turn(-80)
