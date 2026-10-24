@@ -8,7 +8,7 @@ import drone_mission
 import explodiong_seeds
 
 while True:
-    program = hub_menu("x", "s")
+    program = hub_menu("x", "A", "L", "D", "E")
     r = current_robot()
     if program == "x":
         xbox_remote_control.run(r)
