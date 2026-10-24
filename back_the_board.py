@@ -7,6 +7,7 @@ from current_robot import current_robot
 
 
 def run(br: BaseRobot):
+    br.driveForDistance(-400, 200)
     br.robot.arc(2000, -90)
 
 

@@ -7,9 +7,10 @@ import leafcutter_ants
 import drone_mission
 import explodiong_seeds
 import leafcutter_ants_version_a
+import back_the_board
 
 while True:
-    program = hub_menu("x", "1", "2", "3", "4")
+    program = hub_menu("x", "1", "2", "3", "4", "5")
     r = current_robot()
     if program == "x":
         xbox_remote_control.run(r)
@@ -21,4 +22,5 @@ while True:
         drone_mission.run(r)
     elif program == "2":
         explodiong_seeds.run(r)
-    # elif program == "5":
+    elif program == "5":
+        back_the_board.run(r)
