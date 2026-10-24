@@ -8,15 +8,16 @@ import drone_mission
 import explodiong_seeds
 
 while True:
-    program = hub_menu("x", "A", "L", "D", "E")
+    program = hub_menu("x", "1", "2", "3", "4")
     r = current_robot()
     if program == "x":
         xbox_remote_control.run(r)
-    elif program == "A":
+    elif program == "3":
         Across_the_board.run(r)
-    elif program == "L":
+    elif program == "4":
         leafcutter_ants.run(r)
-    elif program == "D":
+    elif program == "1":
         drone_mission.run(r)
-    elif program == "E":
+    elif program == "2":
         explodiong_seeds.run(r)
+    # elif program == "5":
