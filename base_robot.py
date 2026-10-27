@@ -23,6 +23,7 @@ from pybricks.pupdevices import UltrasonicSensor
 from pybricks.parameters import Port
 from pybricks.pupdevices import Motor
 
+
 class BaseRobot:
     """
     Base robot with functionality that works across a variety of robot designs.
@@ -72,6 +73,22 @@ class BaseRobot:
 
     def moveArmDownIfUp(self):
         self.moveLeftAttachmentMotorForMillis(1300, -90)
+
+    def turn_RightAttachmentMotor(self, turn_angle, speed):
+        begining_angle = self.rightAttachmentMotor.angle()
+        self.rightAttachmentMotor.reset_angle(0)
+        self.rightAttachmentMotor.run_target(speed, turn_angle)
+        self.rightAttachmentMotor.reset_angle(
+            begining_angle + self.rightAttachmentMotor.angle()
+        )
+
+    async def turn_LeftAttachmentMotor(self, turn_angle, speed):
+        begining_angle = self.rightAttachmentMotor.angle()
+        self.leftAttachmentMotor.reset_angle(0)
+        self.leftAttachmentMotor.run_target(speed, turn_angle)
+        self.leftAttachmentMotor.reset_angle(
+            begining_angle + self.leftAttachmentMotor.angle()
+        )
 
     def driveForDistance(
         self,

@@ -1,5 +1,5 @@
 from pybricks.tools import hub_menu
-import sample_mission1
+
 import xbox_remote_control
 from current_robot import current_robot
 import Across_the_board
