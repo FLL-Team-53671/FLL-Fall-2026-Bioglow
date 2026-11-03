@@ -18,9 +18,7 @@ from pybricks.parameters import (
 
 
 def run(br: BaseRobot):
-    #   print(br.rightAttachmentMotor.angle())
-    #   br.turn_RightAttachmentMotor(50, 100)
-    br.turn_LeftAttachmentMotor(270, 100)
+    br.turnLeftAttachmentMotor(270, 300)
 
 
 if __name__ == "__main__":

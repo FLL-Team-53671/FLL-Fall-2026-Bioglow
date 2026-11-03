@@ -22,7 +22,7 @@ from pybricks import version
 from pybricks.pupdevices import UltrasonicSensor
 from pybricks.parameters import Port
 from pybricks.pupdevices import Motor
-
+import math
 
 class BaseRobot:
     """
@@ -74,21 +74,33 @@ class BaseRobot:
     def moveArmDownIfUp(self):
         self.moveLeftAttachmentMotorForMillis(1300, -90)
 
-    def turn_RightAttachmentMotor(self, turn_angle, speed):
+    def turnRightAttachmentMotor(self, turn_angle, speed):
         begining_angle = self.rightAttachmentMotor.angle()
-        self.rightAttachmentMotor.reset_angle(0)
-        self.rightAttachmentMotor.run_target(speed, turn_angle)
-        self.rightAttachmentMotor.reset_angle(
-            begining_angle + self.rightAttachmentMotor.angle()
-        )
+        self.rightAttachmentMotorAttachmentMotor.reset_angle(0)
+        self.rightAttachmentMotor.run_target(speed, turn_angle, then=Stop.HOLD, wait=False)
+        
+        while abs(self.rightAttachmentMotor.angle() - turn_angle) > 3:
+            if self.rightAttachmentMotor.stalled():
+                break
 
-    async def turn_LeftAttachmentMotor(self, turn_angle, speed):
-        begining_angle = self.rightAttachmentMotor.angle()
+        self.rightAttachmentMotor.stop()
+        
+        self.rightAttachmentMotor.reset_angle(begining_angle + self.rightAttachmentMotor.angle())
+        
+
+    def turnLeftAttachmentMotor(self, turn_angle, speed):
+        begining_angle = self.leftAttachmentMotor.angle()
         self.leftAttachmentMotor.reset_angle(0)
-        self.leftAttachmentMotor.run_target(speed, turn_angle)
-        self.leftAttachmentMotor.reset_angle(
-            begining_angle + self.leftAttachmentMotor.angle()
-        )
+        self.leftAttachmentMotor.run_target(speed, turn_angle, then=Stop.HOLD, wait=False)
+        
+        while abs(self.leftAttachmentMotor.angle() - turn_angle) > 3:
+            if self.leftAttachmentMotor.stalled():
+                break
+
+        self.leftAttachmentMotor.stop()
+        
+        self.leftAttachmentMotor.reset_angle(begining_angle + self.leftAttachmentMotor.angle())
+        
 
     def driveForDistance(
         self,
