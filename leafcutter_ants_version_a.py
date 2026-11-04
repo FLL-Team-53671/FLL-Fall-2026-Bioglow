@@ -14,12 +14,14 @@ from pybricks.parameters import (
 )
 
 
+# 1 square away from the first bold line with wheels touching the wall and the back right wheel is basically on top of the third bold line
 def run(br: BaseRobot):
-    br.driveForDistance(610, 200, Stop.BRAKE, False)
+    br.robot.arc(-80, 50)
+    br.driveForDistance(610, 200)  # Stop.BRAKE, False)
     br.robot.turn(68)
     br.robot.arc(2000, 12)
-    br.robot.turn(10)
-    br.driveForDistance(180, 40, Stop.BRAKE, False)
+    br.robot.turn(15)
+    br.driveForDistance(160, 40)  # Stop.BRAKE, False)
     br.driveForDistance(-60, 200)
     br.robot.turn(90)
     br.driveForDistance(300, 200)
