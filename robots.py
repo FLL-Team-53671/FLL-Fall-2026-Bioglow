@@ -71,8 +71,8 @@ class PiRobot(BaseRobot):
 
     def __init__(self):
         self.hub = PrimeHub(top_side=-Axis.X, front_side=-Axis.Y)  # type: ignore
-        self.leftDriveMotor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
-        self.rightDriveMotor = Motor(Port.D)
+        self.leftDriveMotor = Motor(Port.D, Direction.COUNTERCLOCKWISE)
+        self.rightDriveMotor = Motor(Port.C)
 
         TIRE_DIAMETER = 62  # mm
         AXLE_TRACK = 170  # distance between the wheels, mm
@@ -83,11 +83,11 @@ class PiRobot(BaseRobot):
             AXLE_TRACK,
         )
 
-        self.leftAttachmentMotor = Motor(Port.F, Direction.COUNTERCLOCKWISE)
+        self.leftAttachmentMotor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
         self.rightAttachmentMotor = Motor(Port.B)
         # UltrasonicSensor(Port.C)
         # left color sensor: A
-        self.colorSensor = ColorSensor(Port.E)
+        self.colorSensor = ColorSensor(Port.F)
         # right color sensor : C
 
         # distance prot is port c
