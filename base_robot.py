@@ -76,9 +76,7 @@ class BaseRobot:
 
     def turnRightAttachmentMotor(self, turn_angle, speed):
         begining_angle = self.rightAttachmentMotor.angle()
-        self.rightAttachmentMotorAttachmentMotor.reset_angle(0)
-        self.rightAttachmentMotor.run_target(speed, turn_angle, then=Stop.HOLD, wait=False)
-        
+        self.rightAttachmentMotor.reset_angle(0)
         while abs(self.rightAttachmentMotor.angle() - turn_angle) > 3:
             if self.rightAttachmentMotor.stalled():
                 break
