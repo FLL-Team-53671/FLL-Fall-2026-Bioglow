@@ -24,6 +24,7 @@ from pybricks.parameters import Port
 from pybricks.pupdevices import Motor
 import math
 
+
 class BaseRobot:
     """
     Base robot with functionality that works across a variety of robot designs.
@@ -77,28 +78,43 @@ class BaseRobot:
     def turnRightAttachmentMotor(self, turn_angle, speed):
         begining_angle = self.rightAttachmentMotor.angle()
         self.rightAttachmentMotor.reset_angle(0)
-        while abs(self.rightAttachmentMotor.angle() - turn_angle) > 3:
+        self.rightAttachmentMotor.run_target(
+            speed, turn_angle, then=Stop.HOLD, wait=False
+        )
+
+        _, angle_tol = self.rightAttachmentMotor.control.target_tolerances()
+        print("angle_tol", angle_tol)
+
+        while abs(self.rightAttachmentMotor.angle() - turn_angle) > angle_tol:
             if self.rightAttachmentMotor.stalled():
+                print("stalled", self.rightAttachmentMotor.stalled())
+                print("speed", self.rightAttachmentMotor.speed())
                 break
+            # print(self.rightAttachmentMotor.speed(300))
 
         self.rightAttachmentMotor.stop()
-        
-        self.rightAttachmentMotor.reset_angle(begining_angle + self.rightAttachmentMotor.angle())
-        
+        # return
+
+        self.rightAttachmentMotor.reset_angle(
+            begining_angle + self.rightAttachmentMotor.angle()
+        )
 
     def turnLeftAttachmentMotor(self, turn_angle, speed):
         begining_angle = self.leftAttachmentMotor.angle()
         self.leftAttachmentMotor.reset_angle(0)
-        self.leftAttachmentMotor.run_target(speed, turn_angle, then=Stop.HOLD, wait=False)
-        
+        self.leftAttachmentMotor.run_target(
+            speed, turn_angle, then=Stop.HOLD, wait=False
+        )
+
         while abs(self.leftAttachmentMotor.angle() - turn_angle) > 3:
             if self.leftAttachmentMotor.stalled():
                 break
 
         self.leftAttachmentMotor.stop()
-        
-        self.leftAttachmentMotor.reset_angle(begining_angle + self.leftAttachmentMotor.angle())
-        
+
+        self.leftAttachmentMotor.reset_angle(
+            begining_angle + self.leftAttachmentMotor.angle()
+        )
 
     def driveForDistance(
         self,
@@ -138,7 +154,7 @@ class BaseRobot:
         """
         self.robot.use_gyro(gyro)
         self.robot.settings(straight_speed=speed)
-        self.robot.straight(distance, then, wait)
+        self.robot.straight(distance, then, True)
 
 
 # This BaseRobot class file is not meant to be run like the mission files.
