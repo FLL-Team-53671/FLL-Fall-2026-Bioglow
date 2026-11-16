@@ -8,10 +8,11 @@ import drone_mission
 import explodiong_seeds
 import leafcutter_ants_version_a
 import back_the_board
+import Flippy
 import trash_can
 
 while True:
-    program = hub_menu("x", "1", "2", "3", "4", "5", "6")
+    program = hub_menu("x", "1", "2", "3", "4", "5", "6", "7")
     r = current_robot()
     if program == "x":
         xbox_remote_control.run(r)
@@ -26,4 +27,6 @@ while True:
     elif program == "5":
         back_the_board.run(r)
     elif program == "6":
+        Flippy.run(r)
+    elif program == "7":
         trash_can.run(r)
