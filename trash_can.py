@@ -20,9 +20,10 @@ from pybricks.parameters import (
 def run(br: BaseRobot):
 
     br.driveForDistance(245, 100)
-
-    br.turnRightAttachmentMotor(35, 3)
-    br.driveForDistance(-245, 21)
+    br.turnRightAttachmentMotor(-35, 25)
+    br.turnRightAttachmentMotor(80, 25)
+    br.turnRightAttachmentMotor(-65, 25)
+    br.driveForDistance(-245, 67)
 
 
 if __name__ == "__main__":

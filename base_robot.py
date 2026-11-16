@@ -87,11 +87,9 @@ class BaseRobot:
 
         while abs(self.rightAttachmentMotor.angle() - turn_angle) > angle_tol:
             if self.rightAttachmentMotor.stalled():
-                print("stalled", self.rightAttachmentMotor.stalled())
-                print("speed", self.rightAttachmentMotor.speed())
                 break
             # print(self.rightAttachmentMotor.speed(300))
-
+        self.rightAttachmentMotor.settings
         self.rightAttachmentMotor.stop()
         # return
 
