@@ -100,21 +100,29 @@ class BaseRobot:
         )
 
     def turnLeftAttachmentMotor(self, turn_angle, speed):
+        self.robot.distance_control
         begining_angle = self.leftAttachmentMotor.angle()
         self.leftAttachmentMotor.reset_angle(0)
         self.leftAttachmentMotor.run_target(
             speed, turn_angle, then=Stop.HOLD, wait=False
         )
 
-        while abs(self.leftAttachmentMotor.angle() - turn_angle) > 3:
+        _, angle_tol = self.leftAttachmentMotor.control.target_tolerances()
+        print("angle_tol", angle_tol)
+
+        while abs(self.leftAttachmentMotor.angle() - turn_angle) > angle_tol:
             if self.leftAttachmentMotor.stalled():
+                print("stalled", self.leftAttachmentMotor.stalled())
+                print("speed", self.rightAttachmentMotor.speed())
                 break
+                # print(self.rightAttachmentMotor.speed(300))
 
-        self.leftAttachmentMotor.stop()
+                self.rightAttachmentMotor.stop()
+                # return
 
-        self.leftAttachmentMotor.reset_angle(
-            begining_angle + self.leftAttachmentMotor.angle()
-        )
+                self.rightAttachmentMotor.reset_angle(
+                    begining_angle + self.rightAttachmentMotor.angle()
+                )
 
     def driveForDistance(
         self,
