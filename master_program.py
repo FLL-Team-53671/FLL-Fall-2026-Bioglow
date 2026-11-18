@@ -16,17 +16,17 @@ while True:
     r = current_robot()
     if program == "x":
         xbox_remote_control.run(r)
-    elif program == "3":
-        Across_the_board.run(r)
     elif program == "4":
+        Across_the_board.run(r)
+    elif program == "5":
         leafcutter_ants_version_a.run(r)
     elif program == "1":
         drone_mission.run(r)
     elif program == "2":
         explodiong_seeds.run(r)
-    elif program == "5":
-        back_the_board.run(r)
-    elif program == "6":
-        Flippy.run(r)
     elif program == "7":
+        back_the_board.run(r)
+    elif program == "3":
+        Flippy.run(r)
+    elif program == "6":
         trash_can.run(r)
